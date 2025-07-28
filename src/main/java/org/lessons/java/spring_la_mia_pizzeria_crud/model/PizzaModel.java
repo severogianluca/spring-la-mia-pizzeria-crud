@@ -2,7 +2,6 @@ package org.lessons.java.spring_la_mia_pizzeria_crud.model;
 
 import java.math.BigDecimal;
 
-import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,7 +25,7 @@ public class PizzaModel {
 
     @Column(name = "descrizione")
     @NotBlank
-    private String descriscione;
+    private String descrizione;
 
     @Column(name = "foto_url")
     @NotBlank
@@ -35,21 +34,17 @@ public class PizzaModel {
     @Column(name = "prezzo")
     private BigDecimal prezzo;
 
-
-
     public PizzaModel() {
     }
 
-    public PizzaModel(Integer id, @NotBlank String nome, @NotBlank String descriscione, @NotBlank String fotoUrl,
+    public PizzaModel(Integer id, @NotBlank String nome, @NotBlank String descrizione, @NotBlank String fotoUrl,
             BigDecimal prezzo) {
         this.id = id;
         this.nome = nome;
-        this.descriscione = descriscione;
+        this.descrizione = descrizione;
         this.fotoUrl = fotoUrl;
         this.prezzo = prezzo;
     }
-
-
 
     public Integer getId() {
         return id;
@@ -67,12 +62,12 @@ public class PizzaModel {
         this.nome = nome;
     }
 
-    public String getDescriscione() {
-        return descriscione;
+    public String getDescrizione() {
+        return descrizione;
     }
 
-    public void setDescriscione(String descriscione) {
-        this.descriscione = descriscione;
+    public void setDescrizione(String descrizione) {
+        this.descrizione = descrizione;
     }
 
     public String getFotoUrl() {
@@ -90,6 +85,10 @@ public class PizzaModel {
     @Min(value = 0)
     public void setPrezzo(BigDecimal prezzo) {
         this.prezzo = prezzo;
+    }
+
+    public String toString() {
+        return String.format("%s %s %s %s", nome, descrizione, fotoUrl, prezzo);
     }
 
 }
