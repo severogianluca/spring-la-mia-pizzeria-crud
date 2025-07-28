@@ -15,14 +15,15 @@
     </header>
 
     <main>
-        <h1 class="text-center mb-4">Le nostre pizze</h1>
-        <a th:each="pizza : ${pizzas}"  th:href="@{/pizzas/{id}(id=${pizza.id})}" class="card mb-3 container">
-            <div class="card-body">
+
+        <div class="card mb-3 container">
+            <h1 class="text-center mb-4"></h1>
+
                 <h5 th:text="${pizza.nome}" class="card-title"></h5>
                 <p th:text="${pizza.descrizione}" class="card-text"></p>
                 <p th:text="${pizza.prezzo}" class="card-text"></p>
-            </div>
-        </a>
+
+        </div>
 
     </main>
 

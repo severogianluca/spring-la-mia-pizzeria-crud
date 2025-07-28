@@ -7,11 +7,33 @@
     <title>Home</title>
     <!-- Boostrap -->
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}" />
+
     <!-- css -->
+    <link rel="stylesheet" href="/css/style.css" />
 </head>
 
 <body>
-    <h1>Benvenuti</h1>
+    <header th:insert="~{fragments/navbar :: navbar}">
+    </header>
+
+    <main>
+        <div class="container">
+
+            />
+            <h1>Benvenuti da “A Pizza der Sevv”! La casa della Pizza Romana!</h1>
+            <p>
+                Qui celebriamo la tradizione romana con impasti croccanti e sapori autentici. Vieni a scoprire il gusto
+                unico della vera pizza romana, preparata con passione e ingredienti di qualità.
+                Ti aspettiamo per un’esperienza tutta da mordere!
+            </p>
+            <div class="text-center">
+                <img src="/img/A-pizza-der-sevv.png" alt="pizza-img" style="width: 600px; height: auto;">
+            </div>
+        </div>
+
+
+        </p>
+    </main>
 </body>
 
 </html>

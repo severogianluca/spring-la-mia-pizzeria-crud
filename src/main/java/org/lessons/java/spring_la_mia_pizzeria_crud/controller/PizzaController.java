@@ -9,10 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
-@RequestMapping("/home")
+@RequestMapping("/")
 public class PizzaController {
 
     @Autowired
@@ -24,12 +24,18 @@ public class PizzaController {
     }
 
     @GetMapping("/pizzas")
-    public String getMethodName(Model model) {
+    public String getListaPizzas(Model model) {
         List<PizzaModel> pizzas = pizzaRepo.findAll();
 
         model.addAttribute("pizzas", pizzas);
         return "pizzas/index";
     }
-    
+
+    @GetMapping("/pizzas/{id}")
+    public String getPizzaById(@PathVariable("id") int id, Model model) {
+        model.addAttribute("pizza", pizzaRepo.findById(id).get());
+
+        return "pizzas/show";
+    }
 
 }
