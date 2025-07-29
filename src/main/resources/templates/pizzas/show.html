@@ -9,20 +9,33 @@
     <link rel="stylesheet" href="/css/style.css" />
 </head>
 
-<body>
-    <header th:insert="~{fragments/navbar :: navbar}" >
+<body class="bg-principale">
+    <header th:insert="~{fragments/navbar :: navbar}">
 
     </header>
 
-    <main>
+    <main class="mb-3 container">
 
-        <div class="card mb-3 container">
-            <h1 class="text-center mb-4"></h1>
+        <div>
+            <div class="card p-3 mb-5 mt-5">
+                <div class="d-flex">
+                    <div class="card-body">
+                        <h5 th:text="${pizza.nome}" class="card-title"></h5>
+                        <p th:text="${pizza.descrizione}" class="card-text"></p>
+                        <p th:text="${pizza.prezzo}" class="card-text"></p>
+                    </div>
+                    <div class="img-container">
+                        <img th:src="${pizza.fotoUrl}" alt="Foto pizza" class="card-img-top img-fluid p-2" />
+                    </div>
+                </div>
 
-                <h5 th:text="${pizza.nome}" class="card-title"></h5>
-                <p th:text="${pizza.descrizione}" class="card-text"></p>
-                <p th:text="${pizza.prezzo}" class="card-text"></p>
 
+            </div>
+
+
+        </div>
+        <div>
+            <a th:href="@{/pizzas}" type="button" class="btn btn-outline-success">Indietro</a>
         </div>
 
     </main>
