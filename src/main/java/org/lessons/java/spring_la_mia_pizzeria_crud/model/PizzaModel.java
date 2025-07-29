@@ -88,7 +88,7 @@ public class PizzaModel {
     }
 
     public String toString() {
-        return String.format("%s %s %s", nome, descrizione, prezzo);
+        return String.format("%s %s %s€", nome, descrizione, prezzo);
     }
 
 }
