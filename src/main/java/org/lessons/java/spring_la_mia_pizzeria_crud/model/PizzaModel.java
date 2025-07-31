@@ -10,6 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "pizzas")
@@ -20,17 +21,19 @@ public class PizzaModel {
     private Integer id;
 
     @Column(name = "nome")
-    @NotBlank
+    @NotBlank(message = "Name is required")
     private String nome;
 
     @Column(name = "descrizione")
-    @NotBlank
+    @NotBlank(message = "Description is required")
     private String descrizione;
 
     @Column(name = "foto_url")
-    @NotBlank
+    @NotBlank(message = "Image URL is required")
     private String fotoUrl;
 
+    @NotNull(message = "Price is required")
+    @Min(value = 0, message = "Price cannot be negative")
     @Column(name = "prezzo")
     private BigDecimal prezzo;
 
@@ -82,7 +85,6 @@ public class PizzaModel {
         return prezzo;
     }
 
-    @Min(value = 0)
     public void setPrezzo(BigDecimal prezzo) {
         this.prezzo = prezzo;
     }
