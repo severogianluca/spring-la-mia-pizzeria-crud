@@ -24,6 +24,8 @@
                         <h5 th:text="${pizza.nome}" class="card-title"></h5>
                         <p th:text="${pizza.descrizione}" class="card-text"></p>
                         <p th:text="|${pizza.prezzo}€|" class="card-text"></p>
+                        <a th:href="@{/pizzas}" type="button" class="btn btn-outline-success">Indietro</a>
+
                     </div>
                     <div class="img-container">
                         <img th:src="${pizza.fotoUrl}" alt="Foto pizza" class="card-img-top img-fluid p-2" />
@@ -35,9 +37,7 @@
 
 
         </div>
-        <div>
-            <a th:href="@{/pizzas}" type="button" class="btn btn-outline-success">Indietro</a>
-        </div>
+
 
     </main>
 
