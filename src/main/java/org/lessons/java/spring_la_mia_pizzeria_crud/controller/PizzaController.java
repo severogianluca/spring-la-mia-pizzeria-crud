@@ -67,11 +67,7 @@ public class PizzaController {
         return "redirect:/pizzas";
     }
 
-
-
-
-
-        @GetMapping("/pizzas/edit/{id}")
+    @GetMapping("/pizzas/edit/{id}")
     public String edit(@PathVariable Integer id, Model model) {
         model.addAttribute("pizza", pizzaRepo.findById(id).get());
         return "pizzas/edit";
@@ -88,4 +84,9 @@ public class PizzaController {
     }
 
 
+    @PostMapping("pizzas/delete/{id}")
+    public String delete(@PathVariable Integer id){
+        pizzaRepo.deleteById(id);
+        return "redirect:/pizzas";
+    }
 }

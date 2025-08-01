@@ -25,13 +25,22 @@
 
         <div th:each="pizza : ${pizzas}" class="card mb-3">
             <div class="d-flex">
+
                 <div class="card-body">
-                    <a th:href="@{/pizzas/{id}(id=${pizza.id})}" th:text="${pizza.nome}" class="card-title text-decoration-none fw-bold fs-5"></a>
+                    <a th:href="@{/pizzas/{id}(id=${pizza.id})}" th:text="${pizza.nome}"
+                        class="card-title text-decoration-none fw-bold fs-5"></a>
                     <p th:text="${pizza.descrizione}" class="card-text"></p>
                     <p th:text="|${pizza.prezzo}€|" class="card-text"></p>
-                    <a th:href="@{/pizzas/delete/{id}(id=${pizza.id})}" class="btn btn-outline-danger me-2">Elimina</a>
-                    <a th:href="@{/pizzas/edit/{id}(id=${pizza.id})}" class="btn btn-outline-success">Modifica</a>
+
+                    <div class="d-flex">
+                        <form action="#" th:action="@{/pizzas/delete/{id}(id=${pizza.id})}" method="post">
+                            <button type="submit" class="btn btn-outline-danger me-2">Elimina</button>
+                        </form>
+                        <a th:href="@{/pizzas/edit/{id}(id=${pizza.id})}" class="btn btn-outline-success">Modifica</a>
+                    </div>
+
                 </div>
+
                 <div class="img-container">
                     <img th:src="${pizza.fotoUrl}" alt="Foto pizza" class="card-img-top img-fluid p-2" />
                 </div>
